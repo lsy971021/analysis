@@ -1,0 +1,44 @@
+logging:
+  path: /Users/lsy/Downloads/logs/institute-ai-dev
+  level:
+    com.*: DEBUG
+
+spring:
+  datasource:
+    dynamic:
+      datasource:
+        master:
+          url: jdbc:mysql://rm-2zeyyi108g3u63k6s.mysql.rds.aliyuncs.com:3306/ai-dev?master=1&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+          username: alpha_crawl
+          password: LXfgDxRuj2BUna!G
+          driver-class-name: com.mysql.jdbc.Driver
+        spider:
+          url: jdbc:mysql://rm-2zeyyi108g3u63k6s.mysql.rds.aliyuncs.com:3306/ai-dev?master=1&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+          username: alpha_crawl
+          password: LXfgDxRuj2BUna!G
+          driver-class-name: com.mysql.jdbc.Driver
+        cpws:
+          url: jdbc:mysql://rm-2zeyyi108g3u63k6s.mysql.rds.aliyuncs.com:3306/ai-dev?master=1&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+          username: alpha_crawl
+          password: LXfgDxRuj2BUna!G
+          driver-class-name: com.mysql.jdbc.Driver
+        tidb:
+          url: jdbc:mysql://rm-2zeyyi108g3u63k6s.mysql.rds.aliyuncs.com:3306/ai-dev?master=1&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+          username: alpha_crawl
+          password: LXfgDxRuj2BUna!G
+          driver-class-name: com.mysql.jdbc.Driver
+        tidbEsearch:
+          url: jdbc:mysql://rm-2zeyyi108g3u63k6s.mysql.rds.aliyuncs.com:3306/ai-dev?master=1&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+          username: alpha_crawl
+          password: LXfgDxRuj2BUna!G
+          driver-class-name: com.mysql.jdbc.Driver
+        tidbBigdata:
+          url: jdbc:mysql://172.16.75.137:3390/bigdata?useSSL=false&useUnicode=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+          username: tidb_rw
+          password: tidb_rw@123
+          driver-class-name: com.mysql.jdbc.Driver
+        tidbCrawdata:
+          url: jdbc:mysql://172.16.75.137:3390/crawdata?useSSL=false&useUnicode=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+          username: tidb_rw
+          password: tidb_rw@123
+          driver-class-name: com.mysql.jdbc.Driver

@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+
+#mybatis:
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath*:mybatis/mapper/*.xml
+  global-config:
+    db-config:
+      field-strategy: not_null
+
+############# 分页插件PageHelper配置 #############
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  pageSizeZero: true
+  params: count=countSql
