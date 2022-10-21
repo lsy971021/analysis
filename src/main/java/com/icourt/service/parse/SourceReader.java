@@ -17,8 +17,22 @@ public interface SourceReader<T>{
      */
     List<T> ReadData(QueryWrapper queryWrapper);
 
+
+    /**
+     * 读取单条数据
+     * @return
+     */
     T readOne();
 
+    /**
+     * 更新
+     */
     void update();
+
+    /**
+     * 数量统计
+     * @return
+     */
+    Integer getCount();
 
 }

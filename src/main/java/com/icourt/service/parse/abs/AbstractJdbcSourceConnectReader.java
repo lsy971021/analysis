@@ -1,16 +1,16 @@
 package com.icourt.service.parse.abs;
 
 
-import com.icourt.service.parse.SourceReader;
+import com.icourt.service.parse.SourceConnectReader;
 import org.apache.commons.lang3.StringUtils;
 
 import java.sql.*;
 
 /**
- * jdbc读取数据
+ * 通过jdbc读取数据
  * @param <T>
  */
-public abstract class JdbcSourceReader<T> implements SourceReader<T> {
+public abstract class AbstractJdbcSourceConnectReader<T> implements SourceConnectReader<T> {
 
     /**
      * 数据库连接connection
@@ -24,7 +24,7 @@ public abstract class JdbcSourceReader<T> implements SourceReader<T> {
      * @param username 数据库连接username
      * @param password 数据库连接password
      */
-    public JdbcSourceReader(String jdbcDriver,String url, String username, String password) {
+    public AbstractJdbcSourceConnectReader(String jdbcDriver, String url, String username, String password) {
         try {
             Class.forName(jdbcDriver);  //反射运行时
 //            connection = DriverManager.getConnection("jdbc:postgresql://172.16.71.102:5432/crawlerdb", "postgres", "Ytk3Z21May7iUwkD");
@@ -72,4 +72,12 @@ public abstract class JdbcSourceReader<T> implements SourceReader<T> {
         return resultSet.next() ? resultSet.getString(column) : null;
     }
 
+    /**
+     * 获取数据库连接connect
+     * @return
+     */
+    @Override
+    public Connection getConnect() {
+        return this.connection;
+    }
 }
