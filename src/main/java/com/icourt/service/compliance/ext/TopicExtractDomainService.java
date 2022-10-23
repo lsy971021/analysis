@@ -1,4 +1,4 @@
-package com.icourt.service.compliance;
+package com.icourt.service.compliance.ext;
 
 
 import com.icourt.entity.compliance.db.RegulatoryNotice;

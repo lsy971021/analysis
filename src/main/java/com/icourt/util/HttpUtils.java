@@ -1,7 +1,6 @@
 package com.icourt.util;
 
 import com.alibaba.fastjson.JSON;
-import io.vavr.control.Try;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -16,13 +15,8 @@ import org.apache.commons.httpclient.util.IdleConnectionTimeoutThread;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.http.entity.ContentType;
-import org.springframework.http.MediaType;
-import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.client.WebClient;
 
 import java.io.IOException;
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -51,7 +45,6 @@ public class HttpUtils {
 			.build();
 	private static final MultiThreadedHttpConnectionManager connectionManager = new MultiThreadedHttpConnectionManager();
 	private static final HttpClient client = new HttpClient(connectionManager);
-    private static final WebClient WEB_CLIENT = WebClient.create();
 	static {
 		System.setProperty("org.apache.commons.logging.Log","org.apache.commons.logging.impl.SimpleLog");
 	    System.setProperty("org.apache.commons.logging.simplelog.showdatetime","true");
@@ -163,9 +156,6 @@ public class HttpUtils {
 		return charset;
 	}
 
-	public static String httpPost(String url) {
-		return Try.of(() -> httpPost(url, null)).getOrElseThrow(() -> new RuntimeException("请求失败"));
-	}
 
 	private static NameValuePair[] buildNameValuePairs(Map<String, String> params) {
 		NameValuePair[] data = null;
@@ -341,42 +331,6 @@ public class HttpUtils {
 		}
 	}
 
-	/**
-	 * 非租塞post请求
-	 *
-	 * @param url  url
-	 * @param body 请求体
-	 * @author CaoJing
-	 * @date 2020/08/15 00:35:46
-	 */
-	public static void post(String url, Object body) {
-		WEB_CLIENT
-			.post()
-			.uri(url)
-			.contentType(MediaType.APPLICATION_JSON)
-			.body(BodyInserters.fromObject(body))
-			.retrieve()
-			.bodyToMono(String.class)
-			.timeout(Duration.of(60, ChronoUnit.SECONDS))
-			.subscribe();
-	}
-
-	/**
-	 * 非租塞get请求
-	 *
-	 * @param url url
-	 * @author CaoJing
-	 * @date 2020/08/15 00:35:46
-	 */
-	public static void get(String url) {
-		WEB_CLIENT
-			.get()
-			.uri(url)
-			.retrieve()
-			.bodyToMono(String.class)
-			.timeout(Duration.of(10, ChronoUnit.SECONDS))
-			.subscribe();
-	}
 
 	/**
 	 * okhttp3

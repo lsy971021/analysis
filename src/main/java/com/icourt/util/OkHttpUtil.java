@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.ToString;
 import okhttp3.*;
 import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.util.StringUtils;
 
 import java.io.IOException;

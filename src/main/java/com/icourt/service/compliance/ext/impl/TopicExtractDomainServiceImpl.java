@@ -1,4 +1,4 @@
-package com.icourt.service.compliance.impl;
+package com.icourt.service.compliance.ext.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.icourt.dsmanager.mapper.db.dataobj.RegulatoryNotice;

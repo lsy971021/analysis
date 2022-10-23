@@ -1,8 +1,8 @@
-package com.icourt.service.compliance.impl;
+package com.icourt.service.compliance.ext.impl;
 
 
 import com.icourt.entity.compliance.TopicMatchResult;
-import com.icourt.service.compliance.TopicExtractFunctionService;
+import com.icourt.service.compliance.ext.TopicExtractFunctionService;
 
 import java.util.List;
 
